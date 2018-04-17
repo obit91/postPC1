@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="ri_txt_height">30sp</dimen>
+    <dimen name="ri_txt_padding">0dp</dimen>
+
+    <dimen name="ri_name_height">20sp</dimen>
+    <dimen name="ri_name_padding">0dp</dimen>
+
+    <dimen name="ri_time_stamp_height">10sp</dimen>
+    <dimen name="ri_time_stamp_padding">0dp</dimen>
+
+</resources>

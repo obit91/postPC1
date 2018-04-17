@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    tools:context="postpc.huji.selfchat.MainActivity">
+
+    <TextView
+        android:id="@+id/ri_name"
+        android:layout_width="102dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/ri_name_height" />
+
+    <TextView
+        android:id="@+id/ri_time_stamp"
+        android:layout_width="102dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ri_name"
+        android:gravity="right"
+        android:layout_alignParentEnd="true"
+        android:textSize="@dimen/ri_time_stamp_height" />
+
+    <TextView
+        android:id="@+id/ri_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@id/ri_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textSize="@dimen/ri_txt_height" />
+
+</RelativeLayout>
