@@ -12,7 +12,9 @@ import java.util.List;
  * Created by User on 4/16/2018.
  */
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+
+    private static ClickListener clickListener;
     private List<Message> mDataSource;
 
     public RecyclerAdapter(List<Message> dataSources) {
@@ -45,14 +47,36 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView name, msg, timeStamp;
+    public void setOnItemClickListener(ClickListener clickListener) {
+        RecyclerAdapter.clickListener = clickListener;
+    }
 
-        public ViewHolder(View view) {
-            super(view);
-            name = view.findViewById(R.id.ri_name);
-            msg = view.findViewById(R.id.ri_text);
-            timeStamp = view.findViewById(R.id.ri_time_stamp);
+    public interface ClickListener {
+        void onItemClick(int position, View v);
+        void onItemLongClick(int position, View v);
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+        private TextView name, msg, timeStamp;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
+            name = itemView.findViewById(R.id.ri_name);
+            msg = itemView.findViewById(R.id.ri_text);
+            timeStamp = itemView.findViewById(R.id.ri_time_stamp);
+        }
+
+        @Override
+        public void onClick(View v) {
+            clickListener.onItemClick(getAdapterPosition(), v);
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            clickListener.onItemLongClick(getAdapterPosition(), v);
+            return false;
         }
     }
 }

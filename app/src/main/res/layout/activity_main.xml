@@ -3,18 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="postpc.huji.selfchat.MainActivity">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="500dp" />
+        android:layout_margin="10dp"
+        android:layout_height="405dp"
+        android:layout_below="@id/fragment_container" />
 
     <Button
         android:id="@+id/submit_button"
         android:layout_width="100dp"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
         android:layout_below="@id/recyclerView"
         android:layout_alignParentEnd="true"
         android:text="@string/submit"
@@ -22,7 +30,7 @@
 
     <EditText
         android:id="@+id/input"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_toStartOf="@id/submit_button"
         android:layout_below="@id/recyclerView"
