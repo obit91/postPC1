@@ -5,17 +5,29 @@
     android:layout_height="match_parent"
     tools:context="postpc.huji.selfchat.MainActivity">
 
-        <Button
-            android:id="@+id/whatsapp_button"
-            android:layout_width="102dp"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:orientation="vertical"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="@string/whatsapp"
-            android:textSize="12sp"/>
+    <Button
+        android:id="@+id/whatsapp_button"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="12sp"
+        android:layout_toEndOf="@+id/view"
+        android:text="@string/whatsapp"/>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="12sp"
+        android:layout_toStartOf="@+id/view"
+        android:text="@string/delete_message"/>
 
     <FrameLayout
         android:id="@+id/whatsapp_share_fragment"

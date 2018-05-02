@@ -1,6 +1,5 @@
 package postpc.huji.selfchat;
 
-import android.os.Handler;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,12 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -93,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
 
                 // create a new fragment and update with data
-                WhatsappFragment whatsappFragment = new WhatsappFragment();
+                HeaderFragment whatsappFragment = new HeaderFragment();
                 Bundle args = new Bundle();
 
                 // generate message
@@ -106,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
                 sb.append(line);
                 sb.append("Text: " + msg.getText());
 
-                args.putString(WhatsappFragment.INPUT_TEXT, sb.toString());
+                args.putString(HeaderFragment.INPUT_TEXT, sb.toString());
+                args.putInt(HeaderFragment.REMOVE_POS, position);
                 whatsappFragment.setArguments(args);
 
                 // save new fragment
@@ -119,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commit();
             }
         });
+    }
+
+    public void removeMessage(int id) {
+        mMessages.remove(id);
+        mAdapter.notifyDataSetChanged();
     }
 
 //    @Override

@@ -2,4 +2,5 @@
     <string name="app_name">SelfChat</string>
     <string name="submit">שלח</string>
     <string name="whatsapp">Share to whatsapp</string>
+    <string name="delete_message">Remove Message</string>
 </resources>
